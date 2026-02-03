@@ -8,4 +8,6 @@ import { SignupComponent } from "./auth/signup/signup.component";
   templateUrl: './app.component.html',
   imports: [SignupComponent],
 })
-export class AppComponent {}
+export class AppComponent {
+  
+}

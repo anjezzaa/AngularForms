@@ -64,7 +64,7 @@ get emailIsInvalid() {
   && this.form.controls.email.invalid
   );
 }
-get passwordlIsInvalid() {
+get passwordIsInvalid() {
   return (this.form.controls.password.touched
   && this.form.controls.password.dirty
   && this.form.controls.password.invalid
@@ -72,14 +72,14 @@ get passwordlIsInvalid() {
 }
 
   ngOnInit() {
-    // const savedForm = window.localStorage.getItem('saved-login-form');
+    const savedForm = window.localStorage.getItem('saved-login-form');
 
-    // if(savedForm) {
-    //   const loadedForm = JSON.parse(savedForm);
-    //   this.form.patchValue({
-    //     email: loadedForm.email,
-    //   });
-    // }
+    if(savedForm) {
+      const loadedForm = JSON.parse(savedForm);
+      this.form.patchValue({
+        email: loadedForm.email,
+      });
+    }
 
     const subscription = this.form.valueChanges.pipe(debounceTime(500)).subscribe({
         next: value => {
